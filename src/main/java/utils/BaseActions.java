@@ -27,7 +27,7 @@ public class BaseActions {
 	
 	public void setUpDriver() {
 		DesiredCapabilities ds = new DesiredCapabilities();
-		ds.setCapability(MobileCapabilityType.UDID, "RFCX10ND17K");
+		ds.setCapability(MobileCapabilityType.UDID, "R5CW120EVFA");
 		ds.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		ds.setCapability(MobileCapabilityType.DEVICE_NAME, "Samsung");
 		ds.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");

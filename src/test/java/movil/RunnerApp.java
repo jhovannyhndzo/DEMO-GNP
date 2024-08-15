@@ -45,7 +45,7 @@ public class RunnerApp extends BaseActions {
 		login.closeOtherSession();
 		home.waitForWelcomeMessage();
 	}
-	
+		
 	@Test (priority = 10)
 	public void validateAllTexts() {
 		assertAllTexts();
