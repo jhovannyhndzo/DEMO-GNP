@@ -19,7 +19,7 @@ public class Login extends BaseActions {
 		//hideKeyboard();
 	}
 	
-	public void waitForWelcomeMessage() {
+	public void waitForWelcomeMessages() {
 		waitForElement(welcomeLabel);
 	}
 	
