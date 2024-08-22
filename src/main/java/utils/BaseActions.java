@@ -206,4 +206,25 @@ public class BaseActions {
 			forceDelay(500);
 		} while(true);
 	}
+	
+	public void textIsAlphabetical(String text) {
+		Boolean isAlphabetical;
+		String regex = "^[A-Za-záéíóúüñÑ]+( [A-Za-záéíóúüñÑ]+)*$";
+		
+		isAlphabetical = text.matches(regex);
+		if(!isAlphabetical) {
+			throw new RuntimeException("Text is not alphabetical: " + text);
+		}
+	}
+
+	public void textIsNumeric(String text) {
+		Boolean isNumeric;
+		String regex = "^\\d{14}$";
+		
+		isNumeric = text.matches(regex);
+		if(!isNumeric) {
+			throw new RuntimeException("Text is not numeric: " + text);
+		}
+	}
+	
 }
