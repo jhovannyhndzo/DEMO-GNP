@@ -28,9 +28,9 @@ public class BaseActions {
 	
 	public void setUpDriver() {
 		DesiredCapabilities ds = new DesiredCapabilities();
-		ds.setCapability(MobileCapabilityType.UDID, "XOTCXO7DJNUGEYS4");
+		ds.setCapability(MobileCapabilityType.UDID, "26f7e32c");
 		ds.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		ds.setCapability(MobileCapabilityType.DEVICE_NAME, "XOTCXO7DJNUGEYS4");
+		ds.setCapability(MobileCapabilityType.DEVICE_NAME, "Poco X3 Pro");
 		ds.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
 		ds.setCapability("unicodeKeyboard", true); // Deshabilitar teclado
 		ds.setCapability("autoGrantPermissions", true); // Otorgar permisos

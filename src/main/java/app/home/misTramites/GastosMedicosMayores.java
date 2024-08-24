@@ -1,6 +1,8 @@
 package app.home.misTramites;
 
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 
@@ -25,6 +27,8 @@ public class GastosMedicosMayores extends BaseActions {
 	private By ingresarHora = By.xpath("(//android.widget.EditText)[2]");
 	private By ingresarMinutos = By.xpath("(//android.widget.EditText)[3]");
 	private By amHoraButton = By.xpath("//android.widget.Button[@text = \"AM\"]");
+	private By continuarButtonFH = By.xpath("//*[@text = \"Continuar\"]");
+	
 	
 	//Agregar los xpath de Continuar,continuar, continuar, tagCerrar o sroll, enviar
 	
@@ -37,7 +41,26 @@ public class GastosMedicosMayores extends BaseActions {
 	}
 	
 	public void tapnuevoTramite() {
-		tapButton (nuevoTramite);
+		
+        int attempts = 0;
+        final int maxAttempts = 5; // Número máximo de intentos
+
+        while (attempts < maxAttempts) {
+            try {
+                // Espera hasta que el elemento sea visible antes de intentar hacer clic
+                if (attempts > 0) {
+                	waitForElementShort(nuevoTramite);
+                }
+
+                // Realiza el clic en el botón
+                tapButton (nuevoTramite);
+                attempts++;
+            } catch (NoSuchElementException e) {
+                // Si el botón no está disponible después de los intentos, salir del bucle
+                break;
+            }
+        }
+		
 	}
 	
 	//Agregar espera de TextElement "Selecciona la poliza a la que deseas asociar el trámite"
