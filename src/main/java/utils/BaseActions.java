@@ -21,7 +21,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseActions {
 
-	static AndroidDriver<MobileElement> driver;
+	public static AndroidDriver<MobileElement> driver;
 	static WebDriverWait driverWait;
 	static WebDriverWait driverWaitShort;
 	static SoftAssert softassert = new SoftAssert();
@@ -85,6 +85,13 @@ public class BaseActions {
 		driver.hideKeyboard();
 	}
 	
+	public void clearCampo(By element) {
+		System.out.println("Limpiar campo: " + element);
+		driverWait.until(ExpectedConditions.elementToBeClickable(element));
+		MobileElement field = driver.findElement(element);
+        field.clear();
+	}
+	
 	public String getText(By element) {
 		driverWait.until(ExpectedConditions.presenceOfElementLocated(element));
 		String text = driver.findElement(element).getText();
@@ -143,6 +150,38 @@ public class BaseActions {
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(swipe));
         System.out.println("Swiperight");
+	}
+	
+	public void swipeUp() {
+		Dimension size = driver.manage().window().getSize();
+        int startY = (int) (size.height * 0.85);
+        int endY = (int) (size.height * 0.15);
+        int startX = size.width / 2;
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+
+        swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startY, startX));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), endY, startX));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
+	}
+	
+	public void swipeDown() {
+		Dimension size = driver.manage().window().getSize();
+        int startY = (int) (size.height * 0.15);
+        int endY = (int) (size.height * 0.85);
+        int startX = size.width / 2;
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+
+        swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startY, startX));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), endY, startX));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
 	}
 	
 	public void swipedownparaSegumuentoalsiniestro() {

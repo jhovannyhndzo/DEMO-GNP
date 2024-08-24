@@ -11,6 +11,7 @@ import FlujoSOSautos.Seguimientoalsiniestro;
 import FlujoSOSautos.mis_tramites;
 import FlujoSOSautos.tramite;
 import FlujoSOSautos.tramites_autos;
+import app.home.misTramites.GastosMedicosMayores;
 import home.Home;
 import intro_and_login.Intro;
 import intro_and_login.Login;
@@ -21,6 +22,8 @@ public class RunnerApp extends BaseActions {
 	Intro intro = new Intro();
 	Login login = new Login();
 	Home home = new Home();
+	GastosMedicosMayores gastos = new GastosMedicosMayores();
+	
 	mis_tramites mt =new mis_tramites();
 	tramites_autos ta =new tramites_autos();
 	Nuevotramite nt=new Nuevotramite();
@@ -56,6 +59,26 @@ public class RunnerApp extends BaseActions {
 		login.tapLogin();
 		login.closeOtherSession();
 		home.waitForWelcomeMessage();
+		//Flujo MisTrámites-Pau
+		home.tapbtnmistramites();
+		gastos.tapGastosMedicosMayores();
+		gastos.waitForTextQueDeseasHacer();
+		gastos.tapnuevoTramite();
+		swipeDown();
+		swipeUp();
+		gastos.tapSeleccionarPoliza();
+		gastos.tapIngresoHospitalario();
+		gastos.tapIngresoSinCarta();
+		gastos.tapIniciarTramiteButton();
+		gastos.waitForTextNombreDelAsegurado();
+		gastos.tapContinuarButton();
+		gastos.ingresarNombreDeHospital();
+		gastos.tapBuscarHospitalButton();
+		gastos.tapSeleccionarHospitalUno();
+		gastos.tapAceptarYcontinuarAlerta();
+		gastos.tapAbrirCalendario();
+		gastos.ingresarHora();
+		//Fin de flujoPau
 		home.tapbtnmistramites();
 		mt.tapbtnAutos();
 		ta.waitForMessage();
