@@ -75,6 +75,7 @@ public class RunnerApp extends BaseActions {
 		gastos.ingresarNombreDeHospital();
 		gastos.tapBuscarHospitalButton();
 		gastos.tapSeleccionarHospitalUno();
+		gastos.tapContinuarHospital();
 		gastos.tapAceptarYcontinuarAlerta();
 		gastos.tapAbrirCalendario();
 		gastos.ingresarHora();

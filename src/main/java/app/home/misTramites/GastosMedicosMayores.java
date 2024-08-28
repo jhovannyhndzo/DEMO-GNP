@@ -21,6 +21,7 @@ public class GastosMedicosMayores extends BaseActions {
 	private By ingresarNombredeHospitalText = By.xpath("//android.widget.EditText");
 	private By buscarHospitalButton = By.xpath("//*[@text = \"search\"]");
 	private By opcionUnoHospitalButton = By.xpath("//*[@text = \"Hospital\"]");
+	private By continuarButton2 = By.xpath("//*[@text = \"Continuar\"]");
 	private By AlertButtonAceptarYcontinuar = By.xpath("//android.widget.Button[@text=\"Aceptar y continuar\"]");
 	private By ButtonAbrirCalendario = By.xpath("//*[@text = \"Open calendar\"]");
 	private By diaEnCalendario;
@@ -109,6 +110,9 @@ public class GastosMedicosMayores extends BaseActions {
 		tapButton (opcionUnoHospitalButton);
 	}
 	
+	public void tapContinuarHospital() {
+		tapButton (continuarButton2);
+	}
 	//Agregar Método del Botón Continuar
 	
 	public void tapAceptarYcontinuarAlerta() {
