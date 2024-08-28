@@ -64,8 +64,8 @@ public class RunnerApp extends BaseActions {
 		gastos.tapGastosMedicosMayores();
 		gastos.waitForTextQueDeseasHacer();
 		gastos.tapnuevoTramite();
-		swipeDown();
 		swipeUp();
+		swipeDown();
 		gastos.tapSeleccionarPoliza();
 		gastos.tapIngresoHospitalario();
 		gastos.tapIngresoSinCarta();
@@ -78,6 +78,13 @@ public class RunnerApp extends BaseActions {
 		gastos.tapAceptarYcontinuarAlerta();
 		gastos.tapAbrirCalendario();
 		gastos.ingresarHora();
+		gastos.tapCheckBoxUrgencias();
+		gastos.tapContinuar();
+		gastos.tapContinuarDC();
+		gastos.tapContinuarDoc();
+		gastos.tapEnviarInformacion();
+		gastos.tapFinalizarTramite();
+		
 		//Fin de flujoPau
 		home.tapbtnmistramites();
 		mt.tapbtnAutos();

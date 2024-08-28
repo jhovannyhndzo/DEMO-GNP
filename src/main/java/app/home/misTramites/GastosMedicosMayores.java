@@ -27,8 +27,13 @@ public class GastosMedicosMayores extends BaseActions {
 	private By ingresarHora = By.xpath("(//android.widget.EditText)[2]");
 	private By ingresarMinutos = By.xpath("(//android.widget.EditText)[3]");
 	private By amHoraButton = By.xpath("//android.widget.Button[@text = \"AM\"]");
+	private By CheckboxUrgencas = By.xpath("//android.widget.CheckBox");
 	private By continuarButtonFH = By.xpath("//*[@text = \"Continuar\"]");
-	
+	private By continuarButtonDC = By.xpath("//*[@text = \"Continuar\"]");
+	private By continuarButtonDoc = By.xpath("//*[@text = \"Continuar\"]");
+	private By contraerButton = By.xpath("//android.widget.Button[contains(@text, \"expand_less\")]");
+	private By enviarInformacionButton = By.xpath("//android.widget.Button[contains(@text, \"Enviar\")]");
+	private By finalizarTramiteButton = By.xpath("//android.widget.Button[contains(@text, \"Finalizar\")]");
 	
 	//Agregar los xpath de Continuar,continuar, continuar, tagCerrar o sroll, enviar
 	
@@ -134,5 +139,46 @@ public class GastosMedicosMayores extends BaseActions {
 		tapButton(amHoraButton);
 	}
 	
+	public void tapCheckBoxUrgencias() {
+		tapButton (CheckboxUrgencas);
+	}
+	
+	public void tapContinuar() {
+		tapButton (continuarButtonFH);
+	}
+	
+	public void tapContinuarDC() {
+		tapButton (continuarButtonDC);
+	}
+	
+	public void tapContinuarDoc() {
+		tapButton (continuarButtonDoc);
+	}
+	
+	public void tapEnviarInformacion() {
+		tapButton (contraerButton);
+		tapButton (enviarInformacionButton);
+	}
+	
+	public void tapFinalizarTramite() {
+		int attempts = 0;
+        final int maxAttempts = 5; // Número máximo de intentos
+
+        while (attempts < maxAttempts) {
+            try {
+                // Espera hasta que el elemento sea visible antes de intentar hacer clic
+                if (attempts > 0) {
+                	waitForElementShort(finalizarTramiteButton);
+                }
+
+                // Realiza el clic en el botón
+                tapButton (finalizarTramiteButton);
+                attempts++;
+            } catch (NoSuchElementException e) {
+                // Si el botón no está disponible después de los intentos, salir del bucle
+                break;
+            }
+        }
+	}
 	
 }
